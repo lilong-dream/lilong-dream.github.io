@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="backPack," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -90,17 +90,16 @@
 
 
 
-<meta name="description" content="backPackhttp://www.lintcode.com/zh-cn/problem/backpack/ method 112345678910111213int backPack(int m, vector&amp;lt;int&amp;gt; A) &amp;#123;	vector&amp;lt;int&amp;gt; f(m + 1, 0);	for (int i = 0; i &amp;lt; A.size(); i++) &amp;#">
-<meta name="keywords" content="backPack">
+<meta name="description" content="LRU Cache 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970#include &amp;lt;iostream&amp;gt;#include &amp;lt;list&amp;gt;#include &amp;lt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="backPack problems">
-<meta property="og:url" content="http://yoursite.com/2017/05/06/backPack/index.html">
+<meta property="og:title" content="LRU Cache">
+<meta property="og:url" content="http://yoursite.com/2017/05/06/N_Queens/index.html">
 <meta property="og:site_name" content="lilong dream">
-<meta property="og:description" content="backPackhttp://www.lintcode.com/zh-cn/problem/backpack/ method 112345678910111213int backPack(int m, vector&amp;lt;int&amp;gt; A) &amp;#123;	vector&amp;lt;int&amp;gt; f(m + 1, 0);	for (int i = 0; i &amp;lt; A.size(); i++) &amp;#">
-<meta property="og:updated_time" content="2017-05-05T15:55:49.000Z">
+<meta property="og:description" content="LRU Cache 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970#include &amp;lt;iostream&amp;gt;#include &amp;lt;list&amp;gt;#include &amp;lt;">
+<meta property="og:updated_time" content="2017-05-05T17:05:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="backPack problems">
-<meta name="twitter:description" content="backPackhttp://www.lintcode.com/zh-cn/problem/backpack/ method 112345678910111213int backPack(int m, vector&amp;lt;int&amp;gt; A) &amp;#123;	vector&amp;lt;int&amp;gt; f(m + 1, 0);	for (int i = 0; i &amp;lt; A.size(); i++) &amp;#">
+<meta name="twitter:title" content="LRU Cache">
+<meta name="twitter:description" content="LRU Cache 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970#include &amp;lt;iostream&amp;gt;#include &amp;lt;list&amp;gt;#include &amp;lt;">
 
 
 
@@ -128,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/06/backPack/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/06/N_Queens/"/>
 
 
 
 
 
-  <title>backPack problems | lilong dream</title>
+  <title>LRU Cache | lilong dream</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -263,7 +262,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/backPack/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/N_Queens/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lilong">
@@ -280,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">backPack problems</h1>
+          <h1 class="post-title" itemprop="name headline">LRU Cache</h1>
         
 
         <div class="post-meta">
@@ -315,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/dp/" itemprop="url" rel="index">
-                    <span itemprop="name">dp</span>
+                  <a href="/categories/design/" itemprop="url" rel="index">
+                    <span itemprop="name">design</span>
                   </a>
                 </span>
 
@@ -349,12 +348,8 @@
       
 
       
-        <h2 id="backPack"><a href="#backPack" class="headerlink" title="backPack"></a>backPack</h2><p><a href="http://www.lintcode.com/zh-cn/problem/backpack/" target="_blank" rel="external">http://www.lintcode.com/zh-cn/problem/backpack/</a></p>
-<h3 id="method-1"><a href="#method-1" class="headerlink" title="method 1"></a>method 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">int backPack(int m, vector&lt;int&gt; A) &#123;</div><div class="line">	vector&lt;int&gt; f(m + 1, 0);</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			if (j &gt;= A[i]) &#123;</div><div class="line">				f[j] = max(f[j], f[j - A[i]] + A[i]);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return f[m];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="method-2"><a href="#method-2" class="headerlink" title="method 2"></a>method 2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">int backPack(int m, vector&lt;int&gt; A) &#123;</div><div class="line">	vector&lt;bool&gt; f(m + 1, false);</div><div class="line">	f[0] = true;</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			if (j &gt;= A[i]) &#123;</div><div class="line">				f[j] = f[j] || f[j - A[i]];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">		if (f[j]) &#123;</div><div class="line">			return j;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="backPackII"><a href="#backPackII" class="headerlink" title="backPackII"></a>backPackII</h2><p><a href="http://www.lintcode.com/zh-cn/problem/backpack-ii/" target="_blank" rel="external">http://www.lintcode.com/zh-cn/problem/backpack-ii/</a></p>
-<h3 id="cpp-code"><a href="#cpp-code" class="headerlink" title="cpp code"></a>cpp code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">int backPackII(int m, vector&lt;int&gt; A, vector&lt;int&gt; V) &#123;</div><div class="line">	// f[i][j] = max(f[i - 1][j], f[i - 1][j - A[i] ] + V[i])</div><div class="line"></div><div class="line">	vector&lt;int&gt; f(m + 1, 0);</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			if (j &gt;= A[i] &amp;&amp; (f[j] &lt; f[j - A[i]] + V[i])) &#123;</div><div class="line">				f[j] = f[j - A[i]] + V[i];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return f[m];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+        <p><a href="https://leetcode.com/problems/lru-cache/#/description" target="_blank" rel="external">LRU Cache</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;list&gt;</div><div class="line">#include &lt;unordered_map&gt;</div><div class="line"></div><div class="line">using std::list;</div><div class="line">using std::unordered_map;</div><div class="line"></div><div class="line">struct CacheItem &#123;</div><div class="line">  int key;</div><div class="line">  int value;</div><div class="line">  CacheItem(int k, int val) : key(k), value(val) &#123; &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">class LRUCache &#123;</div><div class="line">public:</div><div class="line">    LRUCache(int capacity) : m_capacity(capacity) &#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    int get(int key) &#123;</div><div class="line">        if (m_map.find(key) != m_map.end()) &#123;</div><div class="line">            moveToHead(key);</div><div class="line">            return m_map[key]-&gt;value;</div><div class="line">        &#125;</div><div class="line">        return -1;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    void set(int key, int value) &#123;</div><div class="line">        if (m_map.find(key) != m_map.end()) &#123;</div><div class="line">            m_map[key]-&gt;value = value;</div><div class="line">            moveToHead(key);</div><div class="line">        &#125; else &#123;</div><div class="line">            if (m_cache.size() == m_capacity) &#123;</div><div class="line">                m_map.erase(m_cache.back().key);</div><div class="line">                m_cache.pop_back();</div><div class="line">            &#125;</div><div class="line">            CacheItem CacheItem(key, value);</div><div class="line">            m_cache.push_front(CacheItem);</div><div class="line">            m_map[key] = m_cache.begin();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">private:</div><div class="line">    void moveToHead(int key) &#123;</div><div class="line">        CacheItem updateCacheItem = *m_map[key];</div><div class="line">        m_cache.erase(m_map[key]);</div><div class="line">        m_cache.push_front(updateCacheItem);</div><div class="line">        m_map[key] = m_cache.begin();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    int m_capacity;</div><div class="line">    list&lt;CacheItem&gt; m_cache;</div><div class="line">    unordered_map&lt;int, list&lt;CacheItem&gt;::iterator&gt; m_map; </div><div class="line">&#125;;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">	LRUCache cache(2);</div><div class="line"></div><div class="line">	cache.set(1, 11);</div><div class="line">	cache.set(2, 22);</div><div class="line">	std::cout &lt;&lt; cache.get(1) &lt;&lt; std::endl;       </div><div class="line">	cache.set(3, 33);    </div><div class="line">	std::cout &lt;&lt; cache.get(2) &lt;&lt; std::endl;       </div><div class="line">	cache.set(4, 44);    </div><div class="line">	std::cout &lt;&lt; cache.get(1) &lt;&lt; std::endl;       </div><div class="line">	std::cout &lt;&lt; cache.get(3) &lt;&lt; std::endl;       </div><div class="line">	std::cout &lt;&lt; cache.get(4) &lt;&lt; std::endl;       </div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -381,12 +376,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/backPack/" rel="tag"># backPack</a>
-          
-        </div>
-      
 
       
         
@@ -396,8 +385,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/06/N_Queens/" rel="next" title="LRU Cache">
-                <i class="fa fa-chevron-left"></i> LRU Cache
+              <a href="/2017/05/06/LRU_Cache/" rel="next" title="N Queens">
+                <i class="fa fa-chevron-left"></i> N Queens
               </a>
             
           </div>
@@ -405,6 +394,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/06/backPack/" rel="prev" title="backPack problems">
+                backPack problems <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -453,17 +446,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -525,22 +509,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#backPack"><span class="nav-number">1.</span> <span class="nav-text">backPack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#method-1"><span class="nav-number">1.1.</span> <span class="nav-text">method 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#method-2"><span class="nav-number">1.2.</span> <span class="nav-text">method 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backPackII"><span class="nav-number">2.</span> <span class="nav-text">backPackII</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cpp-code"><span class="nav-number">2.1.</span> <span class="nav-text">cpp code</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
