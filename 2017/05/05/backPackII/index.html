@@ -90,12 +90,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="lilong dream">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="backPackIIcode12345678910111213141516int backPackII(int m, vector&amp;lt;int&amp;gt; A, vector&amp;lt;int&amp;gt; V) &amp;#123;	// f[i][j] = max(f[i - 1][j], f[i - 1][j - A[i] ] + V[i])	vector&amp;lt;int&amp;gt; f(m + 1, 0);	for">
+<meta property="og:type" content="article">
+<meta property="og:title" content="backPack problems">
+<meta property="og:url" content="http://yoursite.com/2017/05/05/backPackII/index.html">
 <meta property="og:site_name" content="lilong dream">
+<meta property="og:description" content="backPackIIcode12345678910111213141516int backPackII(int m, vector&amp;lt;int&amp;gt; A, vector&amp;lt;int&amp;gt; V) &amp;#123;	// f[i][j] = max(f[i - 1][j], f[i - 1][j - A[i] ] + V[i])	vector&amp;lt;int&amp;gt; f(m + 1, 0);	for">
+<meta property="og:updated_time" content="2017-05-05T08:42:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lilong dream">
+<meta name="twitter:title" content="backPack problems">
+<meta name="twitter:description" content="backPackIIcode12345678910111213141516int backPackII(int m, vector&amp;lt;int&amp;gt; A, vector&amp;lt;int&amp;gt; V) &amp;#123;	// f[i][j] = max(f[i - 1][j], f[i - 1][j - A[i] ] + V[i])	vector&amp;lt;int&amp;gt; f(m + 1, 0);	for">
 
 
 
@@ -123,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/05/backPackII/"/>
 
 
 
 
 
-  <title>lilong dream</title>
+  <title>backPack problems | lilong dream</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -154,9 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,9 +241,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -267,9 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/05/backPackII/" itemprop="url">backPack problems</a></h1>
+          <h1 class="post-title" itemprop="name headline">backPack problems</h1>
         
 
         <div class="post-meta">
@@ -316,24 +316,29 @@
       
 
       
+        <h2 id="backPackII"><a href="#backPackII" class="headerlink" title="backPackII"></a>backPackII</h2><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">int backPackII(int m, vector&lt;int&gt; A, vector&lt;int&gt; V) &#123;</div><div class="line">	// f[i][j] = max(f[i - 1][j], f[i - 1][j - A[i] ] + V[i])</div><div class="line"></div><div class="line">	vector&lt;int&gt; f(m + 1, 0);</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		<span class="keyword">for</span> (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			<span class="keyword">if</span> (j &gt;= A[i] &amp;&amp; (f[j] &lt; f[j - A[i]] + V[i])) &#123;</div><div class="line">				f[j] = f[j - A[i]] + V[i];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> f[m];</div><div class="line">&#125;<span class="built_in">return</span> f[m];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
         
-          
-            <h2 id="backPackII"><a href="#backPackII" class="headerlink" title="backPackII"></a>backPackII</h2><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">int backPackII(int m, vector&lt;int&gt; A, vector&lt;int&gt; V) &#123;</div><div class="line">	// f[i][j] = max(f[i - 1][j], f[i - 1][j - A[i] ] + V[i])</div><div class="line"></div><div class="line">	vector&lt;int&gt; f(m + 1, 0);</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		<span class="keyword">for</span> (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			<span class="keyword">if</span> (j &gt;= A[i] &amp;&amp; (f[j] &lt; f[j - A[i]] + V[i])) &#123;</div><div class="line">				f[j] = f[j - A[i]] + V[i];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> f[m];</div><div class="line">&#125;<span class="built_in">return</span> f[m];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
-      
-    </div>
-
-    <div>
       
     </div>
 
@@ -341,133 +346,38 @@
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/backPack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="lilong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lilong dream">
-    </span>
-
-    
-      <header class="post-header">
-
         
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/05/05/backPack/" itemprop="url">backPack problems</a></h1>
-        
+      
 
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-05T16:43:01+08:00">
-                2017-05-05
-              </time>
+              <a href="/2017/05/05/backPack/" rel="next" title="backPack problems">
+                <i class="fa fa-chevron-left"></i> backPack problems
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="backPack"><a href="#backPack" class="headerlink" title="backPack"></a>backPack</h2><h3 id="method-1"><a href="#method-1" class="headerlink" title="method 1"></a>method 1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">int backPack(int m, vector&lt;int&gt; A) &#123;</div><div class="line">	// write your code here</div><div class="line">	vector&lt;int&gt; f(m + 1, 0);</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		<span class="keyword">for</span> (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			<span class="keyword">if</span> (j &gt;= A[i]) &#123;</div><div class="line">				f[j] = max(f[j], f[j - A[i]] + A[i]);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="built_in">return</span> f[m];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -475,6 +385,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -494,8 +408,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -539,6 +462,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#backPackII"><span class="nav-number">1.</span> <span class="nav-text">backPackII</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#code"><span class="nav-number">1.1.</span> <span class="nav-text">code</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -652,6 +591,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
