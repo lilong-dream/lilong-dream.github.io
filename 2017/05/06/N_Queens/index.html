@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="LRU Cache 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970#include &amp;lt;iostream&amp;gt;#include &amp;lt;list&amp;gt;#include &amp;lt;">
+<meta name="description" content="Eight queens puzzle 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162#include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;#include &amp;lt;stri">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LRU Cache">
+<meta property="og:title" content="N Queens">
 <meta property="og:url" content="http://yoursite.com/2017/05/06/N_Queens/index.html">
 <meta property="og:site_name" content="lilong dream">
-<meta property="og:description" content="LRU Cache 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970#include &amp;lt;iostream&amp;gt;#include &amp;lt;list&amp;gt;#include &amp;lt;">
-<meta property="og:updated_time" content="2017-05-05T17:05:49.000Z">
+<meta property="og:description" content="Eight queens puzzle 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162#include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;#include &amp;lt;stri">
+<meta property="og:updated_time" content="2017-05-05T17:02:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LRU Cache">
-<meta name="twitter:description" content="LRU Cache 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970#include &amp;lt;iostream&amp;gt;#include &amp;lt;list&amp;gt;#include &amp;lt;">
+<meta name="twitter:title" content="N Queens">
+<meta name="twitter:description" content="Eight queens puzzle 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162#include &amp;lt;iostream&amp;gt;#include &amp;lt;vector&amp;gt;#include &amp;lt;stri">
 
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title>LRU Cache | lilong dream</title>
+  <title>N Queens | lilong dream</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LRU Cache</h1>
+          <h1 class="post-title" itemprop="name headline">N Queens</h1>
         
 
         <div class="post-meta">
@@ -291,7 +291,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-06T01:06:11+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-06T16:12:46+08:00">
                 2017-05-06
               </time>
             
@@ -314,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/design/" itemprop="url" rel="index">
-                    <span itemprop="name">design</span>
+                  <a href="/categories/dfs/" itemprop="url" rel="index">
+                    <span itemprop="name">dfs</span>
                   </a>
                 </span>
 
@@ -348,8 +348,8 @@
       
 
       
-        <p><a href="https://leetcode.com/problems/lru-cache/#/description" target="_blank" rel="external">LRU Cache</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;list&gt;</div><div class="line">#include &lt;unordered_map&gt;</div><div class="line"></div><div class="line">using std::list;</div><div class="line">using std::unordered_map;</div><div class="line"></div><div class="line">struct CacheItem &#123;</div><div class="line">  int key;</div><div class="line">  int value;</div><div class="line">  CacheItem(int k, int val) : key(k), value(val) &#123; &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">class LRUCache &#123;</div><div class="line">public:</div><div class="line">    LRUCache(int capacity) : m_capacity(capacity) &#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    int get(int key) &#123;</div><div class="line">        if (m_map.find(key) != m_map.end()) &#123;</div><div class="line">            moveToHead(key);</div><div class="line">            return m_map[key]-&gt;value;</div><div class="line">        &#125;</div><div class="line">        return -1;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    void set(int key, int value) &#123;</div><div class="line">        if (m_map.find(key) != m_map.end()) &#123;</div><div class="line">            m_map[key]-&gt;value = value;</div><div class="line">            moveToHead(key);</div><div class="line">        &#125; else &#123;</div><div class="line">            if (m_cache.size() == m_capacity) &#123;</div><div class="line">                m_map.erase(m_cache.back().key);</div><div class="line">                m_cache.pop_back();</div><div class="line">            &#125;</div><div class="line">            CacheItem CacheItem(key, value);</div><div class="line">            m_cache.push_front(CacheItem);</div><div class="line">            m_map[key] = m_cache.begin();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">private:</div><div class="line">    void moveToHead(int key) &#123;</div><div class="line">        CacheItem updateCacheItem = *m_map[key];</div><div class="line">        m_cache.erase(m_map[key]);</div><div class="line">        m_cache.push_front(updateCacheItem);</div><div class="line">        m_map[key] = m_cache.begin();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    int m_capacity;</div><div class="line">    list&lt;CacheItem&gt; m_cache;</div><div class="line">    unordered_map&lt;int, list&lt;CacheItem&gt;::iterator&gt; m_map; </div><div class="line">&#125;;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">	LRUCache cache(2);</div><div class="line"></div><div class="line">	cache.set(1, 11);</div><div class="line">	cache.set(2, 22);</div><div class="line">	std::cout &lt;&lt; cache.get(1) &lt;&lt; std::endl;       </div><div class="line">	cache.set(3, 33);    </div><div class="line">	std::cout &lt;&lt; cache.get(2) &lt;&lt; std::endl;       </div><div class="line">	cache.set(4, 44);    </div><div class="line">	std::cout &lt;&lt; cache.get(1) &lt;&lt; std::endl;       </div><div class="line">	std::cout &lt;&lt; cache.get(3) &lt;&lt; std::endl;       </div><div class="line">	std::cout &lt;&lt; cache.get(4) &lt;&lt; std::endl;       </div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p><a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle" target="_blank" rel="external">Eight queens puzzle</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;vector&gt;</div><div class="line">#include &lt;string&gt;</div><div class="line"></div><div class="line">using std::vector;</div><div class="line">using std::string;</div><div class="line"></div><div class="line">vector&lt;bool&gt; col;</div><div class="line">vector&lt;bool&gt; diag;</div><div class="line">vector&lt;bool&gt; antidiag;</div><div class="line">    </div><div class="line">void dfs(int i, int n, vector&lt;vector&lt;string&gt; &gt; &amp;res, vector&lt;string&gt; &amp;board) &#123;</div><div class="line">	if (i == n) &#123;</div><div class="line">		res.push_back(board);</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	for (int j = 0; j &lt; n; j++) &#123;</div><div class="line">		if (!(col[j] &amp;&amp; diag[i - j + n - 1] &amp;&amp; antidiag[i + j])) &#123;</div><div class="line">			continue;        </div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		board[i][j] = &apos;Q&apos;;  // Q stands for queen</div><div class="line">		col[j] = diag[i - j + n - 1] = antidiag[i + j] = false;</div><div class="line">		</div><div class="line">		dfs(i + 1, n, res, board);</div><div class="line">		</div><div class="line">		board[i][j] = &apos;.&apos;;</div><div class="line">		col[j] = diag[i - j + n - 1] = antidiag[i + j] = true;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">vector&lt;vector&lt;string&gt; &gt; solveNQueens(int n) &#123;</div><div class="line">	vector&lt;vector&lt;string&gt; &gt; res;  </div><div class="line">	</div><div class="line">	col = vector&lt;bool&gt;(n, true);</div><div class="line">	diag = vector&lt;bool&gt;(2 * n - 1, true);</div><div class="line">	antidiag = vector&lt;bool&gt;(2 * n - 1, true);</div><div class="line"></div><div class="line">	vector&lt;string&gt; board(n, string(n, &apos;.&apos;));  </div><div class="line">	</div><div class="line">	dfs(0, n, res, board);</div><div class="line">	</div><div class="line">	return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">	int n;	</div><div class="line">	std::cout &lt;&lt; &quot;Pls input n: &quot; &lt;&lt; std::endl;</div><div class="line">	std::cin &gt;&gt; n;</div><div class="line"></div><div class="line">	vector&lt;vector&lt;string&gt; &gt; res = solveNQueens(n);</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; res.size(); i++) &#123;</div><div class="line">		for (int j = 0; j &lt; res[0].size(); j++) &#123;</div><div class="line">			std::cout &lt;&lt; res[i][j] &lt;&lt; std::endl;</div><div class="line">		&#125;</div><div class="line">		std::cout &lt;&lt; &quot;==========&quot; &lt;&lt; std::endl;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -385,8 +385,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/06/LRU_Cache/" rel="next" title="N Queens">
-                <i class="fa fa-chevron-left"></i> N Queens
+              <a href="/2017/05/06/LRU_Cache/" rel="next" title="LRU Cache">
+                <i class="fa fa-chevron-left"></i> LRU Cache
               </a>
             
           </div>
@@ -394,10 +394,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/06/backPack/" rel="prev" title="backPack problems">
-                backPack problems <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

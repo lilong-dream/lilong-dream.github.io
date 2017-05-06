@@ -260,7 +260,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/backPack/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/N_Queens/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lilong">
@@ -279,7 +279,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/06/backPack/" itemprop="url">backPack problems</a></h1>
+                <a class="post-title-link" href="/2017/05/06/N_Queens/" itemprop="url">N Queens</a></h1>
         
 
         <div class="post-meta">
@@ -291,7 +291,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-06T01:06:11+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-06T16:12:46+08:00">
                 2017-05-06
               </time>
             
@@ -314,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/dp/" itemprop="url" rel="index">
-                    <span itemprop="name">dp</span>
+                  <a href="/categories/dfs/" itemprop="url" rel="index">
+                    <span itemprop="name">dfs</span>
                   </a>
                 </span>
 
@@ -350,12 +350,8 @@
       
         
           
-            <h2 id="backPack"><a href="#backPack" class="headerlink" title="backPack"></a>backPack</h2><p><a href="http://www.lintcode.com/zh-cn/problem/backpack/" target="_blank" rel="external">http://www.lintcode.com/zh-cn/problem/backpack/</a></p>
-<h3 id="method-1"><a href="#method-1" class="headerlink" title="method 1"></a>method 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">int backPack(int m, vector&lt;int&gt; A) &#123;</div><div class="line">	vector&lt;int&gt; f(m + 1, 0);</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			if (j &gt;= A[i]) &#123;</div><div class="line">				f[j] = max(f[j], f[j - A[i]] + A[i]);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return f[m];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="method-2"><a href="#method-2" class="headerlink" title="method 2"></a>method 2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">int backPack(int m, vector&lt;int&gt; A) &#123;</div><div class="line">	vector&lt;bool&gt; f(m + 1, false);</div><div class="line">	f[0] = true;</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			if (j &gt;= A[i]) &#123;</div><div class="line">				f[j] = f[j] || f[j - A[i]];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">		if (f[j]) &#123;</div><div class="line">			return j;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="backPackII"><a href="#backPackII" class="headerlink" title="backPackII"></a>backPackII</h2><p><a href="http://www.lintcode.com/zh-cn/problem/backpack-ii/" target="_blank" rel="external">http://www.lintcode.com/zh-cn/problem/backpack-ii/</a></p>
-<h3 id="cpp-code"><a href="#cpp-code" class="headerlink" title="cpp code"></a>cpp code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">int backPackII(int m, vector&lt;int&gt; A, vector&lt;int&gt; V) &#123;</div><div class="line">	// f[i][j] = max(f[i - 1][j], f[i - 1][j - A[i] ] + V[i])</div><div class="line"></div><div class="line">	vector&lt;int&gt; f(m + 1, 0);</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			if (j &gt;= A[i] &amp;&amp; (f[j] &lt; f[j - A[i]] + V[i])) &#123;</div><div class="line">				f[j] = f[j - A[i]] + V[i];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return f[m];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+            <p><a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle" target="_blank" rel="external">Eight queens puzzle</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;vector&gt;</div><div class="line">#include &lt;string&gt;</div><div class="line"></div><div class="line">using std::vector;</div><div class="line">using std::string;</div><div class="line"></div><div class="line">vector&lt;bool&gt; col;</div><div class="line">vector&lt;bool&gt; diag;</div><div class="line">vector&lt;bool&gt; antidiag;</div><div class="line">    </div><div class="line">void dfs(int i, int n, vector&lt;vector&lt;string&gt; &gt; &amp;res, vector&lt;string&gt; &amp;board) &#123;</div><div class="line">	if (i == n) &#123;</div><div class="line">		res.push_back(board);</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	for (int j = 0; j &lt; n; j++) &#123;</div><div class="line">		if (!(col[j] &amp;&amp; diag[i - j + n - 1] &amp;&amp; antidiag[i + j])) &#123;</div><div class="line">			continue;        </div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		board[i][j] = &apos;Q&apos;;  // Q stands for queen</div><div class="line">		col[j] = diag[i - j + n - 1] = antidiag[i + j] = false;</div><div class="line">		</div><div class="line">		dfs(i + 1, n, res, board);</div><div class="line">		</div><div class="line">		board[i][j] = &apos;.&apos;;</div><div class="line">		col[j] = diag[i - j + n - 1] = antidiag[i + j] = true;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">vector&lt;vector&lt;string&gt; &gt; solveNQueens(int n) &#123;</div><div class="line">	vector&lt;vector&lt;string&gt; &gt; res;  </div><div class="line">	</div><div class="line">	col = vector&lt;bool&gt;(n, true);</div><div class="line">	diag = vector&lt;bool&gt;(2 * n - 1, true);</div><div class="line">	antidiag = vector&lt;bool&gt;(2 * n - 1, true);</div><div class="line"></div><div class="line">	vector&lt;string&gt; board(n, string(n, &apos;.&apos;));  </div><div class="line">	</div><div class="line">	dfs(0, n, res, board);</div><div class="line">	</div><div class="line">	return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">	int n;	</div><div class="line">	std::cout &lt;&lt; &quot;Pls input n: &quot; &lt;&lt; std::endl;</div><div class="line">	std::cin &gt;&gt; n;</div><div class="line"></div><div class="line">	vector&lt;vector&lt;string&gt; &gt; res = solveNQueens(n);</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; res.size(); i++) &#123;</div><div class="line">		for (int j = 0; j &lt; res[0].size(); j++) &#123;</div><div class="line">			std::cout &lt;&lt; res[i][j] &lt;&lt; std::endl;</div><div class="line">		&#125;</div><div class="line">		std::cout &lt;&lt; &quot;==========&quot; &lt;&lt; std::endl;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           
         
       
@@ -398,7 +394,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/N_Queens/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/LRU_Cache/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lilong">
@@ -417,7 +413,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/06/N_Queens/" itemprop="url">LRU Cache</a></h1>
+                <a class="post-title-link" href="/2017/05/06/LRU_Cache/" itemprop="url">LRU Cache</a></h1>
         
 
         <div class="post-meta">
@@ -429,7 +425,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-06T01:06:11+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-06T16:12:46+08:00">
                 2017-05-06
               </time>
             
@@ -532,7 +528,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/LRU_Cache/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/backPack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lilong">
@@ -551,7 +547,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/06/LRU_Cache/" itemprop="url">N Queens</a></h1>
+                <a class="post-title-link" href="/2017/05/05/backPack/" itemprop="url">backPack problems</a></h1>
         
 
         <div class="post-meta">
@@ -563,8 +559,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-06T01:06:11+08:00">
-                2017-05-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-05T17:05:05+08:00">
+                2017-05-05
               </time>
             
 
@@ -586,8 +582,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/dfs/" itemprop="url" rel="index">
-                    <span itemprop="name">dfs</span>
+                  <a href="/categories/dp/" itemprop="url" rel="index">
+                    <span itemprop="name">dp</span>
                   </a>
                 </span>
 
@@ -622,8 +618,12 @@
       
         
           
-            <p><a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle" target="_blank" rel="external">Eight queens puzzle</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;vector&gt;</div><div class="line">#include &lt;string&gt;</div><div class="line"></div><div class="line">using std::vector;</div><div class="line">using std::string;</div><div class="line"></div><div class="line">vector&lt;bool&gt; col;</div><div class="line">vector&lt;bool&gt; diag;</div><div class="line">vector&lt;bool&gt; antidiag;</div><div class="line">    </div><div class="line">void dfs(int i, int n, vector&lt;vector&lt;string&gt; &gt; &amp;res, vector&lt;string&gt; &amp;board) &#123;</div><div class="line">	if (i == n) &#123;</div><div class="line">		res.push_back(board);</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	for (int j = 0; j &lt; n; j++) &#123;</div><div class="line">		if (!(col[j] &amp;&amp; diag[i - j + n - 1] &amp;&amp; antidiag[i + j])) &#123;</div><div class="line">			continue;        </div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		board[i][j] = &apos;Q&apos;;  // Q stands for queen</div><div class="line">		col[j] = diag[i - j + n - 1] = antidiag[i + j] = false;</div><div class="line">		</div><div class="line">		dfs(i + 1, n, res, board);</div><div class="line">		</div><div class="line">		board[i][j] = &apos;.&apos;;</div><div class="line">		col[j] = diag[i - j + n - 1] = antidiag[i + j] = true;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">vector&lt;vector&lt;string&gt; &gt; solveNQueens(int n) &#123;</div><div class="line">	vector&lt;vector&lt;string&gt; &gt; res;  </div><div class="line">	</div><div class="line">	col = vector&lt;bool&gt;(n, true);</div><div class="line">	diag = vector&lt;bool&gt;(2 * n - 1, true);</div><div class="line">	antidiag = vector&lt;bool&gt;(2 * n - 1, true);</div><div class="line"></div><div class="line">	vector&lt;string&gt; board(n, string(n, &apos;.&apos;));  </div><div class="line">	</div><div class="line">	dfs(0, n, res, board);</div><div class="line">	</div><div class="line">	return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">	int n;	</div><div class="line">	std::cout &lt;&lt; &quot;Pls input n: &quot; &lt;&lt; std::endl;</div><div class="line">	std::cin &gt;&gt; n;</div><div class="line"></div><div class="line">	vector&lt;vector&lt;string&gt; &gt; res = solveNQueens(n);</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; res.size(); i++) &#123;</div><div class="line">		for (int j = 0; j &lt; res[0].size(); j++) &#123;</div><div class="line">			std::cout &lt;&lt; res[i][j] &lt;&lt; std::endl;</div><div class="line">		&#125;</div><div class="line">		std::cout &lt;&lt; &quot;==========&quot; &lt;&lt; std::endl;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <h2 id="backPack"><a href="#backPack" class="headerlink" title="backPack"></a>backPack</h2><p><a href="http://www.lintcode.com/zh-cn/problem/backpack/" target="_blank" rel="external">http://www.lintcode.com/zh-cn/problem/backpack/</a></p>
+<h3 id="method-1"><a href="#method-1" class="headerlink" title="method 1"></a>method 1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">int backPack(int m, vector&lt;int&gt; A) &#123;</div><div class="line">	vector&lt;int&gt; f(m + 1, 0);</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			if (j &gt;= A[i]) &#123;</div><div class="line">				f[j] = max(f[j], f[j - A[i]] + A[i]);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return f[m];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="method-2"><a href="#method-2" class="headerlink" title="method 2"></a>method 2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">int backPack(int m, vector&lt;int&gt; A) &#123;</div><div class="line">	vector&lt;bool&gt; f(m + 1, false);</div><div class="line">	f[0] = true;</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			if (j &gt;= A[i]) &#123;</div><div class="line">				f[j] = f[j] || f[j - A[i]];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">		if (f[j]) &#123;</div><div class="line">			return j;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="backPackII"><a href="#backPackII" class="headerlink" title="backPackII"></a>backPackII</h2><p><a href="http://www.lintcode.com/zh-cn/problem/backpack-ii/" target="_blank" rel="external">http://www.lintcode.com/zh-cn/problem/backpack-ii/</a></p>
+<h3 id="cpp-code"><a href="#cpp-code" class="headerlink" title="cpp code"></a>cpp code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">int backPackII(int m, vector&lt;int&gt; A, vector&lt;int&gt; V) &#123;</div><div class="line">	// f[i][j] = max(f[i - 1][j], f[i - 1][j - A[i] ] + V[i])</div><div class="line"></div><div class="line">	vector&lt;int&gt; f(m + 1, 0);</div><div class="line"></div><div class="line">	for (int i = 0; i &lt; A.size(); i++) &#123;</div><div class="line">		for (int j = m; j &gt;= 0; j--) &#123;</div><div class="line">			if (j &gt;= A[i] &amp;&amp; (f[j] &lt; f[j - A[i]] + V[i])) &#123;</div><div class="line">				f[j] = f[j - A[i]] + V[i];</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	return f[m];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
           
         
       
